@@ -1,0 +1,43 @@
+
+
+document.getElementById('newSmall').onclick = function(){generateTable(20,20)};
+document.getElementById('newLong').onclick = function(){generateTable(40,20)};
+document.getElementById('newLarge').onclick = function(){generateTable(40,40)};
+
+function generateTable(x,y){
+    var tables = (document.getElementsByTagName('table'));
+    if(document.getElementsByTagName('table').length > 0){
+        tables[0].parentElement.removeChild(tables[0]);
+    }
+    var container = document.getElementById('level');
+    var table = document.createElement('table');
+    table.id = "room" 
+    table.classList = "table-bordered";
+    container.appendChild(table);
+    for(var i = 0; i < y; i++){
+        var tr = document.createElement("tr");
+        table.appendChild(tr);
+        for(var j = 0; j < x; j++){
+            var td = document.createElement("td");
+            tr.appendChild(td);
+            var a = document.createElement("a");
+            a.id = `${i}+${j}`;
+            td.appendChild(a);
+            a.setAttribute("onclick",`openMenu(${j},${i})`);
+        }
+    }
+}
+
+function openMenu(x,y){
+    
+}
+
+function displayEntities(){
+    var list = document.getElementById('entityList');
+}
+
+var entities = {
+    "Speed Boost": "0",
+    "Firerate Boost": "1"
+}
+

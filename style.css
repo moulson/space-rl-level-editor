@@ -1,0 +1,18 @@
+td{
+    height: 20px;
+    width: 20px;
+}
+td a{
+    height: 100%;
+    width: 100%;
+    display:block;
+    cursor: pointer;
+}
+
+.card{
+    min-height: 500px;
+}
+
+.btn-group{
+    margin-bottom: 30px;
+}
