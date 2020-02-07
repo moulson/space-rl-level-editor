@@ -29,15 +29,42 @@ function generateTable(x,y){
 }
 
 function openMenu(x,y){
-    
+    var title = document.getElementById('card-title');
+    title.textContent = `Cell: ${x},${y}`;
+    displayEntities();
 }
 
 function displayEntities(){
     var list = document.getElementById('entityList');
+    while(list.firstChild){
+        list.removeChild(list.firstChild);
+    }
+    entities.map(function(entity) {
+        var li = document.createElement("li");
+        li.textContent = entity.name;
+        li.id = entity.id;
+        list.appendChild(li);        
+    });
 }
 
-var entities = {
-    "Speed Boost": "0",
-    "Firerate Boost": "1"
+var entities = 
+    [
+        {
+            "name": "Speed Boost",
+            "id": 0
+        },
+        {
+            "name": "Firerate Boost",
+            "id": 1
+        }
+    ]
+
+var environment = {
+    "cube": 0,
+    "rbCube": 1
+}
+
+var enemies = {
+    "evilCube": 0
 }
 
