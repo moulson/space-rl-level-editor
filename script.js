@@ -58,7 +58,11 @@ function exportJson(){
         for(var col of cols){
             var cell = col.firstChild;
             var jsCell = {
-                id: cell.id
+                id: cell.id,
+                entity: cell.getAttribute("entity"),
+                enemy: cell.getAttribute("enemy"),
+                environment: cell.getAttribute("environment"),
+                rotation: cell.getAttribute("rotation")
             };
             jsonRoom.cells.push(jsCell);
             
