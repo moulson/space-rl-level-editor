@@ -43,6 +43,7 @@ function displayEntities(){
         var li = document.createElement("li");
         li.textContent = entity.name;
         li.id = entity.id;
+        li.setAttribute("onclick","");
         list.appendChild(li);        
     });
 }
