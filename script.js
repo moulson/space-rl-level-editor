@@ -21,7 +21,7 @@ function generateTable(x,y){
             var td = document.createElement("td");
             tr.appendChild(td);
             var a = document.createElement("a");
-            a.id = `${i}+${j}`;
+            a.id = `${i},${j}`;
             td.appendChild(a);
             a.setAttribute("onclick",`openMenu(${j},${i})`);
         }
@@ -47,6 +47,30 @@ function displayEntities(){
     });
 }
 
+function exportJson(){
+    var table = document.getElementById('room');
+    var rows = table.children;
+    var x = table.firstElementChild.childElementCount;
+    var y = table.childElementCount;
+    console.log(`${x},${y}`);
+    for(var row of rows){
+        var cols = row.children;
+        for(var col of cols){
+            var cell = col.firstChild;
+            var jsCell = {
+                id: cell.id
+            };
+            jsonRoom.cells.push(jsCell);
+            
+        }
+    }
+    console.log(jsonRoom);
+        
+}
+
+
+//jsonRoom["cells"].filter(x => x.id == "5,1")
+
 var entities = 
     [
         {
@@ -67,4 +91,8 @@ var environment = {
 var enemies = {
     "evilCube": 0
 }
+
+var jsonRoom = {
+    cells: []
+};
 
