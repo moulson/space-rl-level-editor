@@ -37,11 +37,15 @@ function openMenu(x,y){
     displayEntities();
 }
 
-function displayEntities(){
-    var list = document.getElementById('entityList');
+function clearList(list){
     while(list.firstChild){
         list.removeChild(list.firstChild);
     }
+}
+
+function displayEntities(){
+    var list = document.getElementById('entityList');
+    clearList(list);
     entities.map(function(entity) {
         var li = document.createElement("li");
         li.textContent = entity.name;
@@ -51,9 +55,26 @@ function displayEntities(){
     });
 }
 
+function displayEnemies(){
+    var list = document.getElementById('enemyList');
+    clearList(list);
+    enemies.map(function(enemy) {
+        var li = document.createElement("li");
+        li.textContent = enemy.name;
+        li.id = enemy.id;
+        li.setAttribute("onclick",`attachEnemy(${enemy.id})`);
+        list.appendChild(li);        
+    });
+}
+
 function attachEntity(entityId) {
     removeAttributes();
     currentCell.setAttribute("entity", entityId);
+}
+
+function attachEnemy(enemyId){
+    removeAttributes();
+    currentCell.setAttribute("enemy",enemyId);
 }
 
 function removeAttributes(){
