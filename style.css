@@ -8,6 +8,10 @@ td a{
     display:block;
     cursor: pointer;
 }
+a[entity="0"]{
+    background-color: #ff0000;
+    content: '1';
+}
 
 .card{
     min-height: 500px;

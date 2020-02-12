@@ -23,17 +23,17 @@ function generateTable(x,y){
             var td = document.createElement("td");
             tr.appendChild(td);
             var a = document.createElement("a");
-            a.id = `${i},${j}`;
+            a.id = `${j},${i}`;
             td.appendChild(a);
             a.setAttribute("onclick",`openMenu(${j},${i})`);
         }
     }
 }
 
-function openMenu(x,y){
+function openMenu(y,x){
     var title = document.getElementById('card-title');
     currentCell = document.getElementById(`${x},${y}`);
-    title.textContent = `Cell: ${x},${y}`;
+    title.textContent = `Cell: ${y},${x}`;
     displayEntities();
 }
 
