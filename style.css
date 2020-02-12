@@ -8,10 +8,8 @@ td a{
     display:block;
     cursor: pointer;
 }
-a[entity="0"]{
-    background-color: #ff0000;
-    content: '1';
-}
+
+
 
 .card{
     min-height: 500px;
@@ -19,4 +17,36 @@ a[entity="0"]{
 
 .btn-group{
     margin-bottom: 30px;
+}
+
+
+/*////////////////////////////
+        ENTITY LIST 
+///////////////////////////*/
+a[entity="0"], #entityList li[id="0"]{
+    background-color: #e37dc4;
+}
+a[entity="1"], #entityList li[id="1"]{
+    background-color: #740ec0;
+}
+
+
+
+/*////////////////////////////
+        ENEMY LIST 
+///////////////////////////*/
+a[enemy="0"], #enemyList li[id="0"]{
+    background-color: #9ede0d;
+}
+
+
+/*////////////////////////////
+        ENVIRONMENT LIST 
+///////////////////////////*/
+a[environment="0"], #environmentList li[id="0"]{
+    background-color: #83ce7e;
+}
+
+a[environment="1"], #environmentList li[id="1"]{
+    background-color: #95ae0d;
 }

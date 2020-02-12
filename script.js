@@ -36,6 +36,7 @@ function openMenu(x,y){
     title.textContent = `Cell: ${x},${y}`;
     displayEntities();
     displayEnemies();
+    displayEnvironments();
 }
 
 function clearList(list){
@@ -51,6 +52,7 @@ function displayEntities(){
         var li = document.createElement("li");
         li.textContent = entity.name;
         li.id = entity.id;
+        li.classList = li.id;
         li.setAttribute("onclick",`attachEntity(${entity.id})`);
         list.appendChild(li);        
     });
@@ -64,7 +66,19 @@ function displayEnemies(){
         li.textContent = enemy.name;
         li.id = enemy.id;
         li.setAttribute("onclick",`attachEnemy(${enemy.id})`);
-        list.appendChild(li);        
+        list.appendChild(li);
+    });
+}
+
+function displayEnvironments(){
+    var list = document.getElementById('environmentList');
+    clearList(list);
+    environments.map(function(environment) {
+        var li = document.createElement("li");
+        li.textContent = environment.name;
+        li.id = environment.id;
+        li.setAttribute("onclick",`attachEnvironment(${environment.id})`);
+        list.appendChild(li);
     });
 }
 
@@ -76,6 +90,11 @@ function attachEntity(entityId) {
 function attachEnemy(enemyId){
     removeAttributes();
     currentCell.setAttribute("enemy",enemyId);
+}
+
+function attachEnvironment(environmentId){
+    removeAttributes();
+    currentCell.setAttribute("environment", environmentId);
 }
 
 function removeAttributes(){
@@ -133,7 +152,7 @@ var entities = [
     }
 ]
 
-var environment = [
+var environments = [
     {
     "name":"cube",
     "id": 0
