@@ -4,6 +4,8 @@ document.getElementById('newSmall').onclick = function(){generateTable(20,20)};
 document.getElementById('newLong').onclick = function(){generateTable(40,20)};
 document.getElementById('newLarge').onclick = function(){generateTable(40,40)};
 
+var currentCell;
+
 function generateTable(x,y){
     var tables = (document.getElementsByTagName('table'));
     if(document.getElementsByTagName('table').length > 0){
@@ -30,6 +32,7 @@ function generateTable(x,y){
 
 function openMenu(x,y){
     var title = document.getElementById('card-title');
+    currentCell = document.getElementById(`${x},${y}`);
     title.textContent = `Cell: ${x},${y}`;
     displayEntities();
 }
@@ -43,9 +46,20 @@ function displayEntities(){
         var li = document.createElement("li");
         li.textContent = entity.name;
         li.id = entity.id;
-        li.setAttribute("onclick","");
+        li.setAttribute("onclick",`attachEntity(${entity.id})`);
         list.appendChild(li);        
     });
+}
+
+function attachEntity(entityId) {
+    removeAttributes();
+    currentCell.setAttribute("entity", entityId);
+}
+
+function removeAttributes(){
+    currentCell.removeAttribute("entity");
+    currentCell.removeAttribute("enemy");
+    currentCell.removeAttribute("environment");
 }
 
 function exportJson(){
