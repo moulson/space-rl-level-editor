@@ -30,10 +30,10 @@ function generateTable(x,y){
     }
 }
 
-function openMenu(y,x){
+function openMenu(x,y){
     var title = document.getElementById('card-title');
     currentCell = document.getElementById(`${x},${y}`);
-    title.textContent = `Cell: ${y},${x}`;
+    title.textContent = `Cell: ${x},${y}`;
     displayEntities();
 }
 
