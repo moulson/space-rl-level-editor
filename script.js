@@ -100,26 +100,34 @@ function downloadObjectAsJson(exportObj, exportName){
 
 //jsonRoom["cells"].filter(x => x.id == "5,1")
 
-var entities = 
-    [
-        {
-            "name": "Speed Boost",
-            "id": 0
-        },
-        {
-            "name": "Firerate Boost",
-            "id": 1
-        }
-    ]
+var entities = [
+    {
+        "name": "Speed Boost",
+        "id": 0
+    },
+    {
+        "name": "Firerate Boost",
+        "id": 1
+    }
+]
 
-var environment = {
-    "cube": 0,
-    "rbCube": 1
-}
+var environment = [
+    {
+    "name":"cube",
+    "id": 0
+    },
+    {
+    "name":"rbCube",
+    "id": 1
+    }
+]
 
-var enemies = {
-    "evilCube": 0
-}
+var enemies = [
+    {
+        "name":"evilCube",
+        "id" : 0
+    }
+]
 
 var jsonRoom = {
     cells: []
