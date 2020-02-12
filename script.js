@@ -35,6 +35,7 @@ function openMenu(x,y){
     currentCell = document.getElementById(`${x},${y}`);
     title.textContent = `Cell: ${x},${y}`;
     displayEntities();
+    displayEnemies();
 }
 
 function clearList(list){
